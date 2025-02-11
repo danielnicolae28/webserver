@@ -1,11 +1,15 @@
 package server
 
 import (
-	"fmt"
-	"html"
+	"html/template"
 	"log"
 	"net/http"
 )
+
+type Film struct {
+	Title    string
+	Director string
+}
 
 func Webserver() {
 
@@ -14,8 +18,16 @@ func Webserver() {
 		Handler: nil,
 	}
 
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "Hello, %q", html.EscapeString(r.URL.Path))
-	})
+	h1 := func(w http.ResponseWriter, r *http.Request) {
+		temp := template.Must(template.ParseFiles("index.html"))
+		films := map[string][]Film{
+			"Films": {
+				{Title: "GOT", Director: "RR.Martin"},
+			},
+		}
+		temp.Execute(w, films)
+	}
+	http.HandleFunc("/", h1)
+
 	log.Fatal(s.ListenAndServe())
 }

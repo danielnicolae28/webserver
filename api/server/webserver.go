@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/danielnicolae28/webserver/api"
+	"github.com/danielnicolae28/webserver/api/handler"
 )
 
 // type Film struct {
@@ -22,11 +22,6 @@ func Webserver() {
 
 	h1 := func(w http.ResponseWriter, r *http.Request) {
 		temp := template.Must(template.ParseFiles("index.html"))
-		// films := map[string][]Film{
-		// 	"Films": {
-		// 		{Title: "GOT", Director: "RR.Martin"},
-		// 	},
-		// }
 
 		films := api.DataApi()
 

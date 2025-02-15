@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/danielnicolae28/webserver/api"
-	"github.com/danielnicolae28/webserver/server"
+	"github.com/danielnicolae28/webserver/api/handler"
+	"github.com/danielnicolae28/webserver/api/server"
 )
 
 func main() {

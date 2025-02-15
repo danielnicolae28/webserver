@@ -1,11 +1,11 @@
-package server
+package api
 
 import (
 	"html/template"
 	"log"
 	"net/http"
 
-	"github.com/danielnicolae28/webserver/api/handler"
+	api "github.com/danielnicolae28/webserver/api/handler"
 )
 
 // type Film struct {
@@ -21,8 +21,7 @@ func Webserver() {
 	}
 
 	h1 := func(w http.ResponseWriter, r *http.Request) {
-		temp := template.Must(template.ParseFiles("index.html"))
-
+		temp := template.Must(template.ParseFiles("../../web/templates/index.html"))
 		films := api.DataApi()
 
 		temp.Execute(w, films)

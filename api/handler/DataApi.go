@@ -2,7 +2,6 @@ package api
 
 import (
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -36,7 +35,7 @@ func DataApi() FilmOutput {
 
 	var responseObject FilmOutput
 	if err != nil {
-		fmt.Printf(err.Error())
+		log.Fatal(err)
 	}
 
 	responseData, err := ioutil.ReadAll(response.Body)

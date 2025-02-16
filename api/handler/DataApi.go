@@ -29,9 +29,9 @@ type FilmOutput struct {
 	Plot   string
 }
 
-func DataApi() FilmOutput {
-	url := "http://www.omdbapi.com/?apikey=e020bd6a&t=game"
-	response, err := http.Get(url)
+func DataApi(name string) FilmOutput {
+
+	response, err := http.Get(`http://www.omdbapi.com/?apikey=e020bd6a&t=` + name)
 
 	var responseObject FilmOutput
 	if err != nil {

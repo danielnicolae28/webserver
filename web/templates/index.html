@@ -7,10 +7,14 @@
     <title>Document</title>
 </head>
 <body>
+    <nav>
+        <h2>Weather</h2>
+    </nav>
     <h1>Hello</h1>
- 
-        <input type="text">
-        <button>Search</button>
+ <form hx-post = "/">
+     <input type="text" name="title" id="title">
+     <button type="submit">Search</button>
+    </form>
 
         <p>{{.Title}}</p>
         <p>{{.Year}}</p>
